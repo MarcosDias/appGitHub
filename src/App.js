@@ -1,53 +1,36 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Search from './components/Search'
+import UserInfo from './components/UserInfo'
+import Actions from './components/Actions'
+import Repos from './components/Repos'
 
 class App extends Component {
   render() {
     return (
       <div className="app">
+        <Search />
 
-        <div className="search">
-          <input
-            type="search"
-            placeholder="Digite o nome do usuário no GitHub" />
-        </div>
+        <UserInfo />
 
-        <div className="user-info">
-          <img src="https://avatars.githubusercontent.com/u/5454164?v=3"/>
-          <h1>
-            <a href="https://github.com/marcosdias">Marcos Dias</a>
-          </h1>
-        </div>
+        <Actions />
 
-        <ul className="repos-info">
-          <li>- Repositórios: 122</li>
-          <li>- Seguidores: 10</li>
-          <li>- Seguidos: 10</li>
-        </ul>
+        <Repos
+          className="repos"
+          title="Repositórios:"
+          repos={[{
+            name: "Nome do repositório",
+            link: "#"
+          }]}
+        />
 
-        <div className="actions">
-          <button>Ver respositórios</button>
-          <button>Ver favoritos</button>
-        </div>
-
-        <div className="repos">
-          <h2>Repositórios</h2>
-          <ul>
-            <li>
-              <a href="#">Nome do repositório</a>
-            </li>
-          </ul>
-        </div>
-
-        <div className="starred">
-          <h2>Favoritos:</h2>
-          <ul>
-            <li>
-              <a href="#">Nome do respositório</a>
-            </li>
-          </ul>
-        </div>
+        <Repos
+          className="starred"
+          title="Favoritos:"
+          repos={[{
+            name: "Nome do repositório",
+            link: "#"
+          }]}
+        />
       </div>
     );
   }
