@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 
 export default class Repos extends Component {
   render () {
@@ -22,7 +22,7 @@ Repos.defaultProps = {
 }
 
 Repos.propTypes = {
-  className: React.PropTypes.string,
-  title: React.PropTypes.string.isRequired,
-  respo: React.PropTypes.array
+  className: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  respo: PropTypes.array
 }

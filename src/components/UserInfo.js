@@ -1,20 +1,29 @@
-import React, {Component} from 'react';
+import React, {PropTypes} from 'react';
 
-export default class UserInfo extends Component {
-  render () {
-    return(
-      <div className="user-info">
-        <img src="https://avatars.githubusercontent.com/u/5454164?v=3" alt="."/>
-        <h1 className="username">
-          <a href="https://github.com/marcosdias">Marcos Dias</a>
-        </h1>
+const UserInfo = ({ userInfo }) => (
+  <div className="user-info">
+    <img src={userInfo.photo} />
+    <h1 className="username">
+      <a href={`https://github.com/${userInfo.login}`}>
+        {userInfo.name}
+      </a>
+    </h1>
 
-        <ul className="repos-info">
-          <li>- Repositórios: 122</li>
-          <li>- Seguidores: 10</li>
-          <li>- Seguidos: 10</li>
-        </ul>
-      </div>
-    );
-  }
-}
+    <ul className="repos-info">
+      <li>- Repositórios: {userInfo.repos}</li>
+      <li>- Seguidores: {userInfo.followers}</li>
+      <li>- Seguidos: {userInfo.following}</li>
+    </ul>
+  </div>
+);
+
+UserInfo.propTypes = {
+  userInfo: PropTypes.shape({
+    userName: PropTypes.string.isRequred,
+    repos: PropTypes.array.isRequred,
+    followers: PropTypes.number.isRequred,
+    following: PropTypes.number.isRequred
+  })
+};
+
+export default UserInfo;
