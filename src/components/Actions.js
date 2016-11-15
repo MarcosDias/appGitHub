@@ -1,12 +1,10 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-export default class Actions extends Component {
-  render () {
-    return(
-      <div className="actions">
-        <button>Ver respositórios</button>
-        <button>Ver favoritos</button>
-      </div>
-    );
-  }
-}
+const Actions = ({ getRepos, getStarred }) => (
+  <div className="actions">
+    <button onClick={getRepos}>Ver respositórios</button>
+    <button onClick={getStarred}>Ver favoritos</button>
+  </div>
+)
+
+export default Actions

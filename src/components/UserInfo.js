@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 
 const UserInfo = ({ userInfo }) => (
   <div className="user-info">
-    <img src={userInfo.photo} />
+    <img src={userInfo.photo} alt={userInfo.name} />
     <h1 className="username">
       <a href={`https://github.com/${userInfo.login}`}>
         {userInfo.name}

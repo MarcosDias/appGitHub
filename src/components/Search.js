@@ -1,13 +1,17 @@
-import React, {Component} from 'react';
+import React, {PropTypes} from 'react';
 
-export default class Search extends Component {
-  render () {
-    return(
-      <div className="search">
-        <input
-          type="search"
-          placeholder="Digite o nome do usuário no GitHub" />
-      </div>
-    );
-  }
+const Search = ({ handleSearch }) => (
+  <div className="search">
+    <input
+      type="search"
+      placeholder="Digite o nome do usuário no GitHub"
+      onKeyUp={handleSearch}
+    />
+  </div>
+);
+
+Search.propTypes = {
+  handleSearch: PropTypes.func.isRequired
 }
+
+export default Search
